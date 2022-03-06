@@ -6,6 +6,7 @@ for (var i=0;i<document.getElementsByClassName("drum").length;i++){
 function handleClick(){
 
     playSound(this.innerHTML);
+    playAnimation(this.innerHTML);
 
     }
 
@@ -43,6 +44,7 @@ function handleClick(){
 
 document.addEventListener("keydown",function (event){
     playSound(event.key);
+    playAnimation(event.key);
 });
 
 
@@ -85,4 +87,13 @@ function playSound(char){
 
         default:console.log();
     }
+}
+
+
+function playAnimation(char){
+    var activeButton=document.querySelector("."+char); 
+    activeButton.classList.add("pressed");
+    setTimeout(function(){
+        activeButton.classList.remove("pressed");
+    },100);
 }
